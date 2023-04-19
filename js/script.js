@@ -17,23 +17,21 @@ let arr = [
 
 let butt;
 function drow(arr) {
-    console.log(arr)
+    console.log(arr);
     arr.forEach(btn => {
         btns.innerHTML += `<button id="${btn.id}">${btn.name}</button>`
     })    
     butt = document.querySelectorAll('.btns button');
-    update();
-}
-
-drow(arr);
-
-function update() {
     butt.forEach(btn => {
         btn.addEventListener('click', () => {
-            console.log(Number(btn.getAttribute('id')));
-            arr = arr.filter(box => box.id !== Number(btn.getAttribute('id')));
+            arr = arr.filter(obj => obj.id != Number(btn.getAttribute('id')));
             btns.innerHTML = '';
             drow(arr);
         })
     })  
 }
+
+drow(arr);
+
+
+
