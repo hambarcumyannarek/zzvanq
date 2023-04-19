@@ -4,10 +4,6 @@ class Buttons {
         this.name = name;
         this.id = id;
     }
-
-    static delet(){
-        alert('a')
-    }
 }
 
 let arr = [
@@ -26,17 +22,18 @@ function drow(arr) {
         btns.innerHTML += `<button id="${btn.id}">${btn.name}</button>`
     })    
     butt = document.querySelectorAll('.btns button');
-    console.log(butt);
+    update();
 }
 
 drow(arr);
-console.log(butt)
 
-butt.forEach(btn => {
-    btn.addEventListener('click', () => {
-        console.log(Number(btn.getAttribute('id')));
-        arr = arr.filter(box => box.id !== Number(btn.getAttribute('id')));
-        btns.innerHTML = '';
-        drow(arr);
-    })
-})  
+function update() {
+    butt.forEach(btn => {
+        btn.addEventListener('click', () => {
+            console.log(Number(btn.getAttribute('id')));
+            arr = arr.filter(box => box.id !== Number(btn.getAttribute('id')));
+            btns.innerHTML = '';
+            drow(arr);
+        })
+    })  
+}
